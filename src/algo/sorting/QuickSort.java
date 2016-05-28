@@ -1,4 +1,4 @@
-package algo;
+package algo.sorting;
 
 public class QuickSort {
   public static void sort(int[] a, int p, int r) {

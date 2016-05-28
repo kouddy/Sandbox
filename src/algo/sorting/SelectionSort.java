@@ -1,4 +1,4 @@
-package algo;
+package algo.sorting;
 
 public class SelectionSort {
   public static int[] sortAscending(int[] array) {

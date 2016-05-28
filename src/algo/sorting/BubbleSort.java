@@ -1,4 +1,4 @@
-package algo;
+package algo.sorting;
 
 import util.Util;
 
