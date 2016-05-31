@@ -1,6 +1,11 @@
 package algo.sorting;
 
 public class QuickSort {
+  public static int[] quickSort(int[] a) {
+    sort(a, 0, a.length);
+    return a;
+  }
+
   public static void sort(int[] a, int p, int r) {
     if (p < r) {
       int q = partition(a, p, r);
@@ -10,21 +15,18 @@ public class QuickSort {
   }
 
   public static int partition(int[] a, int p, int r) {
-    int elem = a[r - 1];
-    int i = p - 1;
-    for (int j = p; j < r - 1; j++) {
-      if (a[j] < elem) {
-        i++;
-        swap(a, i, j);
+    int l = p;
+    int pivot = a[r - 1];
+    for (int i = p; i < r - 1; i++) {
+      if (a[i] <= pivot) {
+        int tmp = a[i];
+        a[i] = a[l];
+        a[l] = tmp;
+        l++;
       }
     }
-    swap(a, i + 1, r - 1);
-    return i + 1;
-  }
-
-  public static void swap(int[] a, int i1, int i2) {
-    int tmp = a[i1];
-    a[i1] = a[i2];
-    a[i2] = tmp;
+    a[r - 1] = a[l];
+    a[l] = pivot;
+    return l;
   }
 }
