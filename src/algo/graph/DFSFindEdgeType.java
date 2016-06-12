@@ -1,20 +1,16 @@
-package mainpackage;
+package algo.graph;
 
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-import algo.graph.DFS;
-import algo.graph.Graph;
-import algo.graph.TraverseState;
-
-public class main {
-  public static void main(String[] args) {
+public class DFSFindEdgeType {
+  public static void test() {
     Graph g = new Graph(6, true);
     g.addEdge(0, 5);
     g.addEdge(0, 1);
-    g.addEdge(0, 4);
+    g.addEdge(0, 4); /* Forward */
     g.addEdge(1, 2);
-    g.addEdge(1, 5);
+    g.addEdge(1, 5); /* Cross */
     g.addEdge(2, 3);
     g.addEdge(2, 4);
     g.addEdge(3, 0);
@@ -43,9 +39,5 @@ public class main {
         System.out.println("Circle");
       }
     }));
-  }
-
-  public static int coinChange(int value, int[] coins) {
-    return -1;
   }
 }
