@@ -17,20 +17,20 @@ public class MyHeap {
 
   public void insert(int elem) {
     arr[++size] = elem;
-    for (int i = size; i > 0; i = i / 2) {
-      int parentIndex = i / 2;
-      if (parentIndex > 0 && arr[i] > arr[parentIndex]) {
+    for (int i = size, parent = size / 2; i > 0 && parent > 0; i = i / 2, parent = parent / 2) {
+      /* This is similar to bubble sort */
+      if (arr[i] > arr[parent]) {
         int tmp = arr[i];
-        arr[i] = arr[parentIndex];
-        arr[parentIndex] = tmp;
+        arr[i] = arr[parent];
+        arr[parent] = tmp;
       }
     }
   }
 
   public int popMin() {
     int min = arr[1];
-    arr[1] = arr[size--];
-    arr[size + 1] = 0;
+    arr[1] = arr[size];
+    arr[size--] = 0;
     bubbleDown(1);
     return min;
   }

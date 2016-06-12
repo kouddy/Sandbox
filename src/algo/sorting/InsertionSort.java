@@ -5,9 +5,8 @@ public class InsertionSort {
     for (int i = 0; i < array.length; i++) {
       int elem = array[i];
       int j = i - 1;
-      while (j >= 0 && array[j] > elem) {
+      for (; j >= 0 && array[j] > elem; j--) {
         array[j + 1] = array[j];
-        j--;
       }
       array[j + 1] = elem;
     }
