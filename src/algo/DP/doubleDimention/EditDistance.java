@@ -1,5 +1,7 @@
 package algo.DP.doubleDimention;
 
+import java.util.Arrays;
+
 public class EditDistance {
   public static void test() {
     System.out.println(editDistance("you should not", "thou shalt not"));
@@ -18,9 +20,8 @@ public class EditDistance {
         } else {
           int min = edits[i - 1][j - 1];
           if (pattern.charAt(i) != text.charAt(j)) {
-            min = edits[i - 1][j - 1] + 1;
-            min = Math.min(edits[i - 1][j] + 1, min); // extra char in pattern to account
-            min = Math.min(edits[i][j - 1] + 1, min); // extra char in text to account.
+            /* [i-1][j] == extra char in pattern, [i][j-1] extra char in text */
+            min = Arrays.stream(new int[] { edits[i - 1][j - 1], edits[i][j - 1], edits[i - 1][j] }).min().getAsInt() + 1;
           }
           edits[i][j] = min;
         }

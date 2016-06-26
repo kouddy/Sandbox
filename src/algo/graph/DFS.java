@@ -30,8 +30,7 @@ public class DFS {
   public static int traverse(Graph g, int root, TraverseState[] state, int[] parents, int[] entry, int[] exit, int curTime, Optional<IntConsumer> processEarly, Optional<IntConsumer> processLate,
       Optional<BiConsumer<Integer, Integer>> processEdge) {
     state[root] = TraverseState.DISCOVERED;
-    curTime++;
-    entry[root] = curTime;
+    entry[root] = ++curTime;
     processEarly.orElse(i -> {
     }).accept(root);
     for (int child : g.adj.get(root)) {
@@ -46,8 +45,7 @@ public class DFS {
         curTime = traverse(g, child, state, parents, entry, exit, curTime, processEarly, processLate, processEdge);
       }
     }
-    curTime++;
-    exit[root] = curTime;
+    exit[root] = ++curTime;
     state[root] = TraverseState.PROCESSED;
     processLate.orElse(i -> {
     }).accept(root);

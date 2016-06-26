@@ -36,19 +36,18 @@ public class MyHeap {
   }
 
   private void bubbleDown(int rootIndex) {
-    if (rootIndex * 2 > size || rootIndex * 2 + 1 > size) {
+    if (rootIndex * 2 > size) {
       return;
     }
     int left = arr[rootIndex * 2];
     int right = arr[rootIndex * 2 + 1];
-    if (arr[rootIndex] > left && arr[rootIndex] > right) {
-      return;
+    if (arr[rootIndex] < left || arr[rootIndex] < right) {
+      int largerIndex = left > right ? rootIndex * 2 : rootIndex * 2 + 1;
+      int tmp = arr[rootIndex];
+      arr[rootIndex] = arr[largerIndex];
+      arr[largerIndex] = tmp;
+      bubbleDown(largerIndex);
     }
-    int largerIndex = left > right ? rootIndex * 2 : rootIndex * 2 + 1;
-    int tmp = arr[rootIndex];
-    arr[rootIndex] = arr[largerIndex];
-    arr[largerIndex] = tmp;
-    bubbleDown(largerIndex);
     return;
   }
 }
