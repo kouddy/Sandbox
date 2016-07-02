@@ -19,10 +19,8 @@ public class HasTriangle {
     int[] exit = new int[g.numV];
     boolean[] hasTriangle = new boolean[g.numV];
     DFS.traverse(g, 0, state, parents, entry, exit, 0, Optional.ofNullable(null), Optional.ofNullable(null), Optional.of((x, y) -> {
-      if (state[y] == TraverseState.DISCOVERED) {
-        if (parents[x] >= 0 && parents[parents[x]] >= 0 && y == parents[parents[x]]) {
-          hasTriangle[y] = true;
-        }
+      if (state[y] != TraverseState.UNDISCOVERED && parents[x] >= 0 && parents[parents[x]] >= 0 && y == parents[parents[x]]) {
+        hasTriangle[y] = true;
       }
     }));
 

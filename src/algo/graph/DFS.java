@@ -40,7 +40,6 @@ public class DFS {
         }).accept(root, child);
       }
       if (state[child] == TraverseState.UNDISCOVERED) {
-        state[child] = TraverseState.DISCOVERED;
         parents[child] = root;
         curTime = traverse(g, child, state, parents, entry, exit, curTime, processEarly, processLate, processEdge);
       }

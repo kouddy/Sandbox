@@ -3,6 +3,7 @@ package mainpackage;
 import java.util.Stack;
 import java.util.stream.IntStream;
 
+import algo.DP.doubleDimention.MinNumCoins;
 import algo.graph.Graph;
 import algo.graph.TraverseState;
 import algo.graph.WeightedGraph;
@@ -25,6 +26,8 @@ public class main {
     g2.addEdge(1, 4, 9);
     g2.addEdge(2, 3, 2);
     g2.addEdge(3, 4, 1);
+
+    MinNumCoins.test();
   }
 
   public static int coinChange(int value, int[] coins) {
